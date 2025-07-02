@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom Early brand colors
+				warm: '#faf8f1',
+				'deep-olive': '#393f2d',
+				'vibrant-lime': '#d4f57f',
+				'muted-lavender': '#927b9e',
+				'rich-brown': '#3a1f12',
+				'light-neutral': '#dbdfd2',
+				'primary-shade': '#798660',
+				'secondary-gray': '#939f79',
+				'neutral-gray': '#dde2e8',
+				'light-lime': '#e6f9b9',
+				'darker-lime': '#b5ed2c'
+			},
+			fontFamily: {
+				'unna': ['Unna', 'serif'],
+				'satoshi': ['Satoshi', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
