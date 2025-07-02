@@ -83,9 +83,9 @@ const ResearchBrief = () => {
       <div className="max-w-4xl mx-auto px-6 py-4">
         <nav className="text-sm font-satoshi text-primary-shade">
           <Link to="/" className="hover:text-deep-olive">Research</Link>
-          <span className="mx-2">></span>
+          <span className="mx-2">&gt;</span>
           <Link to="/" className="hover:text-deep-olive">GLP-1 Efficacy</Link>
-          <span className="mx-2">></span>
+          <span className="mx-2">&gt;</span>
           <span>SURMOUNT-1 Trial Summary</span>
         </nav>
       </div>
