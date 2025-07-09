@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -13,7 +12,8 @@ const Index = () => {
         "Tirzepatide (Zepbound), a dual-action agent, achieved even greater weight loss of up to 26.6% in SURMOUNT trials.",
         "Earlier therapies like Liraglutide (Saxenda) demonstrated weight loss of up to 8%, establishing the foundation for GLP-1 treatment."
       ],
-      slug: "glp1-therapies-clinical-trials"
+      slug: "glp1-therapies-clinical-trials",
+      link: "https://www.e-enm.org/journal/view.php?doi=10.3803/EnM.2024.1940"
     },
     {
       id: 2,
@@ -24,7 +24,8 @@ const Index = () => {
         "The 10mg dose group saw an average weight loss of 19.5%, while the 5mg group lost 15.0%.",
         "About half of the individuals on higher doses lost 20% or more of their body weight, a result achieved by only 3% on placebo."
       ],
-      slug: "surmount-1-weight-loss"
+      slug: "surmount-1-weight-loss",
+      link: "https://www.nejm.org/doi/full/10.1056/NEJMoa2206038"
     },
     {
       id: 3,
@@ -35,7 +36,8 @@ const Index = () => {
         "This represents the longest and most sustained weight loss observed in any major obesity medicine trial to date.",
         "This durable weight loss was associated with a 94% reduction in the risk of progressing to type 2 diabetes."
       ],
-      slug: "sustained-weight-loss-diabetes-prevention"
+      slug: "sustained-weight-loss-diabetes-prevention",
+      link: "https://investor.lilly.com/node/51561/pdf"
     },
     {
       id: 4,
@@ -46,7 +48,8 @@ const Index = () => {
         "A significant 86% of individuals taking Tirzepatide lost at least 5% of their body weight.",
         "The study confirmed Tirzepatide as a powerful option, showing similar effectiveness to global studies."
       ],
-      slug: "surmount-cn-asian-adults"
+      slug: "surmount-cn-asian-adults",
+      link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11337071/"
     }
   ];
 
@@ -116,14 +119,14 @@ const Index = () => {
         {/* Mirror effect overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-warm to-transparent"></div>
         
-        <div className="relative max-w-4xl mx-auto text-left z-10">
-          <p className="font-satoshi text-xs md:text-sm text-black mb-2 tracking-wider uppercase">
+        <div className="relative max-w-4xl mx-auto text-left z-10 pl-8 md:pl-12">
+          <p className="font-satoshi text-sm md:text-base text-black mb-3 tracking-wider uppercase">
             RESEARCH
           </p>
-          <h1 className="font-unna text-4xl md:text-6xl text-black mb-6">
+          <h1 className="font-unna text-5xl md:text-7xl lg:text-8xl text-black mb-8 leading-tight">
             Early is grounded in science.
           </h1>
-          <p className="font-satoshi text-base md:text-lg leading-relaxed text-black max-w-2xl">
+          <p className="font-satoshi text-lg md:text-xl lg:text-2xl leading-relaxed text-black max-w-3xl">
             The Early program is built on a deep, biological understanding of weight management. 
             Explore the peer-reviewed research that powers our approach to sustainable weight loss.
           </p>
@@ -131,7 +134,7 @@ const Index = () => {
       </section>
 
       {/* Our Most Impactful Studies Section */}
-      <section className="py-16 px-6">
+      <section className="py-8 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-unna text-3xl md:text-4xl text-black mb-4">
@@ -144,7 +147,7 @@ const Index = () => {
               <div
                 key={paper.id}
                 className="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group border hover:border-[#79855F]"
-                onClick={() => window.open('#', '_blank')}
+                onClick={() => window.open(paper.link, '_blank')}
               >
                 <h3 className="font-unna text-xl md:text-2xl text-black mb-2 group-hover:text-black leading-tight">
                   {paper.title}
