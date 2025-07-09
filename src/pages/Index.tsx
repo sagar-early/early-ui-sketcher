@@ -87,11 +87,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-warm">
-      {/* Hero Section with Background Image */}
+      {/* Hero Section with Lab Background Image */}
       <section className="relative py-24 px-6 overflow-hidden">
-        {/* Background with mirror effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-warm via-light-neutral to-neutral-gray opacity-90"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-warm/80 via-transparent to-warm/60"></div>
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/lovable-uploads/1c6ac411-d667-48a3-8fe7-8fccb81efd98.png')`
+          }}
+        ></div>
+        
+        {/* Overlays for text readability and mirror effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-warm/80 via-light-neutral/70 to-neutral-gray/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-warm/90 via-transparent to-warm/50"></div>
         
         {/* Mirror effect overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-warm to-transparent"></div>
@@ -120,7 +128,7 @@ const Index = () => {
             {researchPapers.map((paper) => (
               <div
                 key={paper.id}
-                className="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group border hover:border-vibrant-lime"
+                className="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group border hover:border-[#79855F]"
                 onClick={() => window.open('#', '_blank')}
               >
                 <h3 className="font-unna text-xl md:text-2xl text-deep-olive mb-6 group-hover:text-deep-olive leading-tight">
@@ -130,14 +138,14 @@ const Index = () => {
                 <ul className="space-y-4 mb-6">
                   {paper.keyFindings.map((finding, index) => (
                     <li key={index} className="font-satoshi text-sm md:text-base text-rich-brown leading-relaxed flex items-start">
-                      <span className="inline-block w-2 h-2 bg-vibrant-lime rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="inline-block w-2 h-2 bg-[#79855F] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       {finding}
                     </li>
                   ))}
                 </ul>
                 
                 <div className="flex justify-end">
-                  <span className="font-satoshi text-base text-vibrant-lime hover:text-darker-lime transition-colors group-hover:underline">
+                  <span className="font-satoshi text-base text-[#79855F] hover:text-[#6b7552] transition-colors group-hover:underline">
                     Read More →
                   </span>
                 </div>
