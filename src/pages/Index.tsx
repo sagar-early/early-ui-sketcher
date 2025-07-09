@@ -88,7 +88,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-warm">
       {/* Hero Section with Lab Background Image */}
-      <section className="relative py-24 px-6 overflow-hidden">
+      <section className="relative py-32 px-6 overflow-hidden min-h-[60vh]">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
