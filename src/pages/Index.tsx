@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -95,7 +96,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-warm">
       {/* Hero Section with Lab Background Image */}
-      <section className="relative py-32 px-6 overflow-hidden min-h-[60vh]">
+      <section className="relative py-32 px-6 overflow-hidden min-h-[70vh]">
         {/* Desktop Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
@@ -108,34 +109,34 @@ const Index = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
           style={{
-            backgroundImage: `url('/lovable-uploads/e5a03ac4-9fcc-4fef-b259-8617a1623a58.png')`
+            backgroundImage: `url('/lovable-uploads/adcc5ef6-5663-4308-98d2-85f979b234df.png')`
           }}
         ></div>
         
-        {/* Overlays for text readability and mirror effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-warm/80 via-light-neutral/70 to-neutral-gray/60"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-warm/90 via-transparent to-warm/50"></div>
+        {/* Overlays for text readability and mirror effect with increased blur */}
+        <div className="absolute inset-0 bg-gradient-to-br from-warm/90 via-light-neutral/80 to-neutral-gray/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-warm/95 via-transparent to-warm/60"></div>
         
         {/* Mirror effect overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-warm to-transparent"></div>
-        <div class="flex justify-center">
-        <div className="relative max-w-6xl mx-auto text-left z-10 pl-8 md:pl-12">
-          <p className="font-satoshi text-sm md:text-base text-black mb-3 tracking-wider uppercase">
-            RESEARCH
-          </p>
-          <h1 className="font-unna text-5xl md:text-7xl lg:text-8xl text-black mb-8 leading-tight">
-            Early is grounded in science.
-          </h1>
-          <p className="font-satoshi text-lg md:text-xl lg:text-2xl leading-relaxed text-black max-w-3xl">
-            The Early program is built on a deep, biological understanding of weight management. 
-            Explore the peer-reviewed research that powers our approach to sustainable weight loss.
-          </p>
-        </div>
+        <div className="flex justify-center">
+          <div className="relative max-w-6xl mx-auto text-left z-10 pl-12 md:pl-12">
+            <p className="font-satoshi text-lg md:text-xl text-black mb-4 tracking-widest uppercase">
+              RESEARCH
+            </p>
+            <h1 className="font-unna text-6xl md:text-8xl lg:text-9xl text-black mb-8 leading-tight">
+              Early is grounded in science.
+            </h1>
+            <p className="font-satoshi text-xl md:text-2xl lg:text-3xl leading-relaxed text-black max-w-4xl">
+              The Early program is built on a deep, biological understanding of weight management. 
+              Explore the peer-reviewed research that powers our approach to sustainable weight loss.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Our Most Impactful Studies Section */}
-      <section className="py-8 px-6">
+      <section className="py-4 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-unna text-3xl md:text-4xl text-black mb-4">
