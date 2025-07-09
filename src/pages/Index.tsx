@@ -6,43 +6,47 @@ const Index = () => {
   const researchPapers = [
     {
       id: 1,
-      title: "GLP-1 Therapies: A New Horizon in Obesity Management",
+      title: "GLP-1 Therapies: A Review of Clinical Trials",
+      subtitle: "THE JOURNAL OF ENDOCRINOLOGY AND METABOLISM",
       keyFindings: [
-        "GLP-1 based therapies like Semaglutide (Wegovy) and Liraglutide (Saxenda) have shown significant weight loss of up to 14.9% and 8% respectively in major clinical trials.",
-        "Newer dual-action therapies like Tirzepatide (Zepbound) are setting higher benchmarks, achieving weight loss of up to 26.6% in trials.",
-        "Beyond weight loss, these medications demonstrate proven benefits for heart health and improving key metabolic factors like blood sugar."
+        "Semaglutide (Wegovy) resulted in significant weight loss of up to 14.9% in the landmark STEP trials.",
+        "Tirzepatide (Zepbound), a dual-action agent, achieved even greater weight loss of up to 26.6% in SURMOUNT trials.",
+        "Earlier therapies like Liraglutide (Saxenda) demonstrated weight loss of up to 8%, establishing the foundation for GLP-1 treatment."
       ],
-      slug: "glp1-therapies-obesity-management"
+      slug: "glp1-therapies-clinical-trials"
     },
     {
       id: 2,
       title: "Tirzepatide Once Weekly for the Treatment of Obesity",
+      subtitle: "THE NEW ENGLAND JOURNAL OF MEDICINE",
       keyFindings: [
-        "Patients taking the 15mg dose of Tirzepatide lost an average of 20.9% of their body weight over 72 weeks, compared to just 3.1% with a placebo.",
-        "Nearly 9 out of 10 participants lost at least 5% of their body weight, and about half of those on higher doses lost 20% or more.",
-        "The treatment also led to significant improvements in blood glucose, cholesterol, and other important health markers."
+        "Patients on the highest dose (15mg) lost an average of 20.9% of their starting body weight over 72 weeks.",
+        "The 10mg dose group saw an average weight loss of 19.5%, while the 5mg group lost 15.0%.",
+        "About half of the individuals on higher doses lost 20% or more of their body weight, a result achieved by only 3% on placebo."
       ],
       slug: "surmount-1-weight-loss"
     },
     {
       id: 3,
-      title: "Sustained Weight Loss with Tirzepatide and Diabetes Prevention",
+      title: "Sustained Weight Loss with Tirzepatide (3-Year Trial)",
+      subtitle: "LILLY RESEARCH",
       keyFindings: [
-        "In a groundbreaking 3-year trial, patients treated with Tirzepatide achieved remarkable and sustained weight loss, with an average loss of 22.9% at the highest dose.",
-        "The results represent the longest and most sustained weight loss from any obesity medicine trial to date, demonstrating long-term effectiveness.",
-        "Critically, treatment was associated with a 94% reduction in the risk of developing type 2 diabetes compared to placebo."
+        "Demonstrated remarkable and sustained weight loss, with patients losing an average of 22.9% over 3 years.",
+        "This represents the longest and most sustained weight loss observed in any major obesity medicine trial to date.",
+        "This durable weight loss was associated with a 94% reduction in the risk of progressing to type 2 diabetes."
       ],
       slug: "sustained-weight-loss-diabetes-prevention"
     },
     {
       id: 4,
-      title: "Tirzepatide for Weight Reduction in Chinese Adults With Obesity (SURMOUNT-CN)",
+      title: "Tirzepatide for Weight Reduction in Asian Adults",
+      subtitle: "THE SURMOUNT-CN RANDOMIZED CLINICAL TRIAL",
       keyFindings: [
-        "This study confirmed Tirzepatide's powerful effects in a specific population, with Chinese adults losing up to 17.5% of their body weight over 52 weeks.",
-        "86% of participants achieved a clinically meaningful weight loss of at least 5%, reinforcing the drug's reliability across different populations.",
-        "The treatment also significantly reduced waist size and improved health markers crucial for populations with high metabolic risk."
+        "Participants lost up to 17.5% of their body weight over 52 weeks, confirming strong efficacy in this population.",
+        "A significant 86% of individuals taking Tirzepatide lost at least 5% of their body weight.",
+        "The study confirmed Tirzepatide as a powerful option, showing similar effectiveness to global studies."
       ],
-      slug: "surmount-cn-chinese-adults"
+      slug: "surmount-cn-asian-adults"
     }
   ];
 
@@ -89,11 +93,19 @@ const Index = () => {
     <div className="min-h-screen bg-warm">
       {/* Hero Section with Lab Background Image */}
       <section className="relative py-32 px-6 overflow-hidden min-h-[60vh]">
-        {/* Background Image */}
+        {/* Desktop Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
           style={{
             backgroundImage: `url('/lovable-uploads/1c6ac411-d667-48a3-8fe7-8fccb81efd98.png')`
+          }}
+        ></div>
+        
+        {/* Mobile Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+          style={{
+            backgroundImage: `url('/lovable-uploads/e5a03ac4-9fcc-4fef-b259-8617a1623a58.png')`
           }}
         ></div>
         
@@ -104,11 +116,14 @@ const Index = () => {
         {/* Mirror effect overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-warm to-transparent"></div>
         
-        <div className="relative max-w-4xl mx-auto text-center z-10">
-          <h1 className="font-unna text-4xl md:text-6xl text-deep-olive mb-6">
-            Science, Not Willpower.
+        <div className="relative max-w-4xl mx-auto text-left z-10">
+          <p className="font-satoshi text-xs md:text-sm text-black mb-2 tracking-wider uppercase">
+            RESEARCH
+          </p>
+          <h1 className="font-unna text-4xl md:text-6xl text-black mb-6">
+            Early is grounded in science.
           </h1>
-          <p className="font-satoshi text-lg md:text-xl leading-relaxed text-rich-brown max-w-2xl mx-auto">
+          <p className="font-satoshi text-base md:text-lg leading-relaxed text-black max-w-2xl">
             The Early program is built on a deep, biological understanding of weight management. 
             Explore the peer-reviewed research that powers our approach to sustainable weight loss.
           </p>
@@ -119,7 +134,7 @@ const Index = () => {
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-unna text-3xl md:text-4xl text-deep-olive mb-4">
+            <h2 className="font-unna text-3xl md:text-4xl text-black mb-4">
               Our Most Impactful Studies
             </h2>
           </div>
@@ -131,13 +146,17 @@ const Index = () => {
                 className="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group border hover:border-[#79855F]"
                 onClick={() => window.open('#', '_blank')}
               >
-                <h3 className="font-unna text-xl md:text-2xl text-deep-olive mb-6 group-hover:text-deep-olive leading-tight">
+                <h3 className="font-unna text-xl md:text-2xl text-black mb-2 group-hover:text-black leading-tight">
                   {paper.title}
                 </h3>
                 
+                <h4 className="font-satoshi text-xs md:text-sm text-black mb-6 tracking-wider uppercase">
+                  {paper.subtitle}
+                </h4>
+                
                 <ul className="space-y-4 mb-6">
                   {paper.keyFindings.map((finding, index) => (
-                    <li key={index} className="font-satoshi text-sm md:text-base text-rich-brown leading-relaxed flex items-start">
+                    <li key={index} className="font-satoshi text-sm md:text-base text-black leading-relaxed flex items-start">
                       <span className="inline-block w-2 h-2 bg-[#79855F] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       {finding}
                     </li>
@@ -146,7 +165,7 @@ const Index = () => {
                 
                 <div className="flex justify-end">
                   <span className="font-satoshi text-base text-[#79855F] hover:text-[#6b7552] transition-colors group-hover:underline">
-                    Read More →
+                    Full Study →
                   </span>
                 </div>
               </div>
