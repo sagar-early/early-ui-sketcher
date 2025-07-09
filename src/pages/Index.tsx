@@ -1,106 +1,48 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Header from "@/components/Header";
 
 const Index = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const featuredStudies = [
+  const researchPapers = [
     {
       id: 1,
-      studyName: "SURMOUNT-4 Trial",
-      keyFinding: "Continuous care prevents the 14% weight regain typically seen when treatment stops, maintaining long-term success.",
-      source: "Source: JAMA",
-      slug: "surmount-4-weight-regain"
+      title: "GLP-1 Therapies: A New Horizon in Obesity Management",
+      keyFindings: [
+        "GLP-1 based therapies like Semaglutide (Wegovy) and Liraglutide (Saxenda) have shown significant weight loss of up to 14.9% and 8% respectively in major clinical trials.",
+        "Newer dual-action therapies like Tirzepatide (Zepbound) are setting higher benchmarks, achieving weight loss of up to 26.6% in trials.",
+        "Beyond weight loss, these medications demonstrate proven benefits for heart health and improving key metabolic factors like blood sugar."
+      ],
+      slug: "glp1-therapies-obesity-management"
     },
     {
       id: 2,
-      studyName: "SURMOUNT-1 Trial",
-      keyFinding: "Achieved unprecedented **20.9%** average weight loss with 91% clinical success rate over 72 weeks.",
-      source: "Source: NEJM",
+      title: "Tirzepatide Once Weekly for the Treatment of Obesity",
+      keyFindings: [
+        "Patients taking the 15mg dose of Tirzepatide lost an average of 20.9% of their body weight over 72 weeks, compared to just 3.1% with a placebo.",
+        "Nearly 9 out of 10 participants lost at least 5% of their body weight, and about half of those on higher doses lost 20% or more.",
+        "The treatment also led to significant improvements in blood glucose, cholesterol, and other important health markers."
+      ],
       slug: "surmount-1-weight-loss"
     },
     {
       id: 3,
-      studyName: "Long-term Safety Analysis",
-      keyFinding: "Excellent safety profile demonstrated over 2+ years with minimal adverse effects and sustained benefits.",
-      source: "Source: Lancet",
-      slug: "safety-analysis"
+      title: "Sustained Weight Loss with Tirzepatide and Diabetes Prevention",
+      keyFindings: [
+        "In a groundbreaking 3-year trial, patients treated with Tirzepatide achieved remarkable and sustained weight loss, with an average loss of 22.9% at the highest dose.",
+        "The results represent the longest and most sustained weight loss from any obesity medicine trial to date, demonstrating long-term effectiveness.",
+        "Critically, treatment was associated with a 94% reduction in the risk of developing type 2 diabetes compared to placebo."
+      ],
+      slug: "sustained-weight-loss-diabetes-prevention"
     },
     {
       id: 4,
-      studyName: "Cardiovascular Outcomes Study",
-      keyFinding: "Significant improvements in heart health markers, reducing cardiovascular risk by **25%**.",
-      source: "Source: Circulation",
-      slug: "cardiovascular-outcomes"
-    },
-    {
-      id: 5,
-      studyName: "Comparative Effectiveness Research",
-      keyFinding: "**3x more effective** than traditional diet and exercise approaches for sustained weight management.",
-      source: "Source: Obesity",
-      slug: "comparative-effectiveness"
-    },
-    {
-      id: 6,
-      studyName: "Metabolic Health Study",
-      keyFinding: "Improved insulin sensitivity by **40%** and reduced diabetes risk factors significantly.",
-      source: "Source: Diabetes Care",
-      slug: "metabolic-health"
-    }
-  ];
-
-  const filters = [
-    "All",
-    "GLP-1 Efficacy", 
-    "Long-Term Maintenance",
-    "Cardiovascular Health",
-    "Diet & Nutrition"
-  ];
-
-  const allResearchBriefs = [
-    {
-      id: 1,
-      headline: "**20.9%** Average Weight Loss Achieved",
-      description: "SURMOUNT-1 Trial - Groundbreaking study demonstrating unprecedented weight loss results with tirzepatide treatment over 72 weeks.",
-      category: "GLP-1 Efficacy",
-      slug: "surmount-1-weight-loss"
-    },
-    {
-      id: 2,
-      headline: "Prevents **14%** Weight Regain",
-      description: "SURMOUNT-4 Trial - Long-term study proving continuous therapy maintains weight loss and prevents typical regain patterns.",
-      category: "Long-Term Maintenance",
-      slug: "surmount-4-weight-regain"
-    },
-    {
-      id: 3,
-      headline: "**25%** Reduction in Cardiovascular Risk",
-      description: "Cardiovascular Outcomes Study - Comprehensive analysis showing significant heart health improvements beyond weight loss.",
-      category: "Cardiovascular Health",
-      slug: "cardiovascular-outcomes"
-    },
-    {
-      id: 4,
-      headline: "**2+ Years** of Proven Safety",
-      description: "Long-term Safety Analysis - Extensive safety data demonstrating excellent tolerability and minimal adverse effects.",
-      category: "GLP-1 Efficacy",
-      slug: "safety-analysis"
-    },
-    {
-      id: 5,
-      headline: "**3x More Effective** Than Traditional Methods",
-      description: "Comparative Effectiveness Research - Head-to-head comparison showing superior outcomes with medical weight management.",
-      category: "GLP-1 Efficacy",
-      slug: "comparative-effectiveness"
-    },
-    {
-      id: 6,
-      headline: "**40%** Improvement in Insulin Sensitivity",
-      description: "Nutritional Optimization Study - Evidence-based dietary strategies that maximize treatment outcomes and metabolic health.",
-      category: "Diet & Nutrition",
-      slug: "nutritional-optimization"
+      title: "Tirzepatide for Weight Reduction in Chinese Adults With Obesity (SURMOUNT-CN)",
+      keyFindings: [
+        "This study confirmed Tirzepatide's powerful effects in a specific population, with Chinese adults losing up to 17.5% of their body weight over 52 weeks.",
+        "86% of participants achieved a clinically meaningful weight loss of at least 5%, reinforcing the drug's reliability across different populations.",
+        "The treatment also significantly reduced waist size and improved health markers crucial for populations with high metabolic risk."
+      ],
+      slug: "surmount-cn-chinese-adults"
     }
   ];
 
@@ -143,34 +85,18 @@ const Index = () => {
     }
   ];
 
-  const filteredBriefs = activeFilter === "All" 
-    ? allResearchBriefs 
-    : allResearchBriefs.filter(brief => brief.category === activeFilter);
-
-  const scrollToResearch = (slug: string) => {
-    const element = document.getElementById('research-library');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const renderKeyFinding = (text: string) => {
-    const parts = text.split(/(\*\*.*?\*\*)/);
-    return parts.map((part, index) => {
-      if (part.startsWith('**') && part.endsWith('**')) {
-        return <strong key={index} className="text-deep-olive">{part.slice(2, -2)}</strong>;
-      }
-      return part;
-    });
-  };
-
   return (
     <div className="min-h-screen bg-warm">
-      <Header />
-      
-      {/* Hero Section */}
-      <section className="py-12 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Hero Section with Background Image */}
+      <section className="relative py-24 px-6 overflow-hidden">
+        {/* Background with mirror effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-warm via-light-neutral to-neutral-gray opacity-90"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-warm/80 via-transparent to-warm/60"></div>
+        
+        {/* Mirror effect overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-warm to-transparent"></div>
+        
+        <div className="relative max-w-4xl mx-auto text-center z-10">
           <h1 className="font-unna text-4xl md:text-6xl text-deep-olive mb-6">
             Science, Not Willpower.
           </h1>
@@ -181,92 +107,52 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Research Section */}
-      <section className="py-12 px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Our Most Impactful Studies Section */}
+      <section className="py-16 px-6">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-unna text-3xl md:text-4xl text-deep-olive mb-4">
               Our Most Impactful Studies
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredStudies.map((study) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {researchPapers.map((paper) => (
               <div
-                key={study.id}
-                onClick={() => scrollToResearch(study.slug)}
-                className="bg-white rounded-lg p-6 shadow-sm hover:shadow-lg hover:scale-105 hover:border-2 hover:border-vibrant-lime transition-all duration-300 cursor-pointer group"
+                key={paper.id}
+                className="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group border hover:border-vibrant-lime"
+                onClick={() => window.open('#', '_blank')}
               >
-                <h3 className="font-unna text-xl text-deep-olive mb-3 group-hover:text-deep-olive">
-                  {study.studyName}
+                <h3 className="font-unna text-xl md:text-2xl text-deep-olive mb-6 group-hover:text-deep-olive leading-tight">
+                  {paper.title}
                 </h3>
-                <p className="font-satoshi text-base text-rich-brown mb-4 leading-relaxed">
-                  {renderKeyFinding(study.keyFinding)}
-                </p>
-                <p className="font-satoshi text-sm italic text-secondary-gray">
-                  {study.source}
-                </p>
+                
+                <ul className="space-y-4 mb-6">
+                  {paper.keyFindings.map((finding, index) => (
+                    <li key={index} className="font-satoshi text-sm md:text-base text-rich-brown leading-relaxed flex items-start">
+                      <span className="inline-block w-2 h-2 bg-vibrant-lime rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      {finding}
+                    </li>
+                  ))}
+                </ul>
+                
+                <div className="flex justify-end">
+                  <span className="font-satoshi text-base text-vibrant-lime hover:text-darker-lime transition-colors group-hover:underline">
+                    Read More →
+                  </span>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Research Library Section */}
-      <section id="research-library" className="py-12 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-unna text-3xl md:text-4xl text-deep-olive mb-8">
-              Explore Our Research Library
-            </h2>
-            
-            <div className="flex justify-center flex-wrap gap-3">
-              {filters.map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`px-4 md:px-6 py-3 rounded-full font-satoshi text-sm md:text-base font-bold transition-all duration-200 ${
-                    activeFilter === filter
-                      ? 'bg-deep-olive text-white'
-                      : 'bg-neutral-gray text-deep-olive hover:bg-light-lime'
-                  }`}
-                >
-                  {filter}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredBriefs.map((brief) => (
-              <div
-                key={brief.id}
-                className="bg-white rounded-lg p-6 shadow-sm hover:shadow-lg transition-all duration-300"
-              >
-                <h3 className="font-unna text-xl text-deep-olive mb-3">
-                  {renderKeyFinding(brief.headline)}
-                </h3>
-                <p className="font-satoshi text-base text-rich-brown mb-4 leading-relaxed">
-                  {brief.description}
-                </p>
-                <Link
-                  to={`/research/${brief.slug}`}
-                  className="font-satoshi text-base text-vibrant-lime hover:text-darker-lime hover:underline transition-colors"
-                >
-                  Read More →
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Latest Blogs Section */}
-      <section className="py-12 px-6 bg-light-neutral">
+      {/* Research Blogs Section */}
+      <section className="py-16 px-6 bg-light-neutral">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-unna text-3xl md:text-4xl text-deep-olive mb-4">
-              Latest Blogs
+              Research Blogs
             </h2>
             <p className="font-satoshi text-lg text-rich-brown">
               Insights, tips, and expert guidance for your weight management journey
