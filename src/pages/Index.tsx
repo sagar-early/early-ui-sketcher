@@ -118,7 +118,7 @@ const Index = () => {
         
         {/* Mirror effect overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-warm to-transparent"></div>
-        
+        <div class="flex justify-center">
         <div className="relative max-w-4xl mx-auto text-left z-10 pl-8 md:pl-12">
           <p className="font-satoshi text-sm md:text-base text-black mb-3 tracking-wider uppercase">
             RESEARCH
@@ -130,6 +130,7 @@ const Index = () => {
             The Early program is built on a deep, biological understanding of weight management. 
             Explore the peer-reviewed research that powers our approach to sustainable weight loss.
           </p>
+        </div>
         </div>
       </section>
 
